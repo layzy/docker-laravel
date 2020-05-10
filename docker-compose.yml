@@ -21,12 +21,21 @@ services:
     ports:
       - 8080:80
     volumes: 
-      - ./nginx/files:/etc/nginx
-  
+      - ../html:/usr/share/nginx/html
+      - ./log/nginx:/var/log/nginx
+    depends_on: 
+      - php
+
   php:
     build:
       context: php
       dockerfile: Dockerfile
     volumes: 
-      - ../app:/var/www/htdocs
+      - ../html:/usr/share/nginx/html
+      - ./log/php:/var/log/php-fpm
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - '1080:1080'
 
