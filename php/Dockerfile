@@ -1,9 +1,9 @@
 FROM amazonlinux:2
 
-# nginxとphpのインストール
+# phpのインストール
 RUN yum -y update && \
     amazon-linux-extras install -y php7.4 && \
-    yum install -y php-mbstring 
+    yum install -y php-mbstring unzip tar
 
 # xdebugのインストール
 RUN yum -y install php-pear php-devel gcc make && \
@@ -14,6 +14,10 @@ RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
     php composer-setup.php --filename=composer&& \
     php -r "unlink('composer-setup.php');" && \
     mv composer /usr/local/bin/composer
+
+# nodejsのインストール
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash　&& \
+    . ~/.nvm/nvm.sh && nvm install node && npm i -g yarn
 
 # supervisorのインストール
 RUN yum install -y python3 && pip3 install supervisor
