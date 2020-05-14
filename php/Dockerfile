@@ -16,8 +16,8 @@ RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
     mv composer /usr/local/bin/composer
 
 # nodejsのインストール
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash　&& \
-    . ~/.nvm/nvm.sh && nvm install node && npm i -g yarn
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+RUN . ~/.nvm/nvm.sh && nvm install node && npm i -g yarn
 
 # supervisorのインストール
 RUN yum install -y python3 && pip3 install supervisor
