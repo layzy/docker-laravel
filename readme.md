@@ -1,5 +1,10 @@
 # Dockerで始めるLaravel講座用docker-compose
 
+Web勉強会「[Dockerで始めるLaravel講座-Laravel編-](https://qiita.com/layzy_glp/items/579b295e8cc899aef2c4
+)」用に作ったdocker-compose一式です。
+
+普通の開発にも使えるようある程度配慮して作ってるので、なにかにお使いください。
+
 ## how to use
 
 何処か適当なところに新しくディレクトリを切ってから、その配下で `git clone` してください。
